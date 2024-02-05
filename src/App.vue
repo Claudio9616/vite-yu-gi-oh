@@ -9,11 +9,17 @@ export default {
   }),
   created() {
     axios.get(endpoint).then(res => {
-      this.pokemons = res.data.docs
+      const pokemons = res.data.docs.map(pokemon => {
+        return {
+          id: pokemon._id,
+          name: pokemon.name,
+          type: pokemon.type1,
+          image: pokemon.imageUrl
+        }
+      })
+      this.pokemons = pokemons
     })
-    console.log(endpoint)
   }
-
 }
 </script>
 <template>
