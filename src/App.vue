@@ -1,12 +1,12 @@
 <script>
+import AppMain from './components/AppMain.vue';
 import axios from 'axios';
 import { store } from './store';
 const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
 export default {
   name: 'yu-gi-oh',
-  data: () => ({
-    pokemons: []
-  }),
+  data: () => ({ store }),
+  components: { AppMain },
   created() {
     axios.get(endpoint).then(res => {
       const pokemons = res.data.docs.map(pokemon => {
@@ -17,13 +17,14 @@ export default {
           image: pokemon.imageUrl
         }
       })
-      this.pokemons = pokemons
+      store.pokemons = pokemons
     })
   }
 }
 </script>
 <template>
-  <h1 class="container text-danger">Ciao</h1>
+  <h1 class="container text-center text-danger border-2 border-bottom">LIST POKEMON A.P.I</h1>
+  <AppMain />
 </template>
 <style lang="scss">
 @use './assets/stylesass/style.scss';
