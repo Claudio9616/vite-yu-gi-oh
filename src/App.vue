@@ -23,7 +23,7 @@ export default {
 }
 </script>
 <template>
-  <h1 class="container text-center text-danger border-2 border-bottom">LIST POKEMON A.P.I</h1>
+  <h1 class="container text-center text-danger border-2 border-bottom border-danger">LIST POKEMON A.P.I</h1>
   <AppMain />
 </template>
 <style lang="scss">
