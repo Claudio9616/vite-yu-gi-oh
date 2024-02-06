@@ -22,8 +22,8 @@ export default {
         store.pokemons = pokemons
       }))
     },
-    fetchPokemonsTypes() {
-      console.log('devo cercare')
+    fetchPokemonsTypes(pippo) {
+      console.log('devo cercare ', pippo)
     }
   },
   created() {

@@ -7,7 +7,6 @@ export default {
     emits: ['search-terms']
 }
 </script>
-<!-- chiedere come si risolve sto schifo -->
 <template>
     <form @click.prevent="$emit('search-terms')">
         <select class="form-select" aria-label="Default select example">
