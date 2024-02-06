@@ -21,6 +21,9 @@ export default {
         })
         store.pokemons = pokemons
       }))
+    },
+    fetchPokemonsTypes() {
+      console.log('devo cercare')
     }
   },
   created() {
@@ -29,7 +32,7 @@ export default {
 }
 </script>
 <template>
-  <AppHeader />
+  <AppHeader @search-terms="fetchPokemonsTypes" />
   <AppMain />
 </template>
 <style lang="scss">
