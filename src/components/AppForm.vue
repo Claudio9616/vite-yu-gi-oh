@@ -2,16 +2,17 @@
 import { store } from '../store'
 export default {
     data: () => ({
-        store
+        store,
+        optionValue: ''
     }),
     emits: ['search-terms']
 }
 </script>
 <template>
-    <form @click.prevent="$emit('search-terms')">
-        <select class="form-select" aria-label="Default select example">
+    <form @click.prevent="$emit('search-terms', optionValue)">
+        <select class="form-select" aria-label="Default select example" v-model="optionValue">
             <option selected>Visualizza Pokemon per tipologia</option>
-            <option v-for="pokemonType in  store.pokemonsTypes " :value="pokemonType">
+            <option v-for="(pokemonType, i) in  store.pokemonsTypes" :key="i" :value="pokemonType">
                 {{ pokemonType }}
             </option>
         </select>

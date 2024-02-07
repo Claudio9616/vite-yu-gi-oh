@@ -3,7 +3,7 @@ import AppMain from './components/AppMain.vue';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import { store } from './store';
-const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons/'
+const endpoint = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons'
 export default {
   name: 'yu-gi-oh',
   data: () => ({ store }),
@@ -23,7 +23,9 @@ export default {
       }))
     },
     fetchPokemonsTypes(pippo) {
+      const searchPokemon = `${endpoint}?eq[type1]=${pippo}`
       console.log('devo cercare ', pippo)
+      this.fetchPokemons(searchPokemon)
     }
   },
   created() {
